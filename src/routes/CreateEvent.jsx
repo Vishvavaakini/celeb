@@ -40,15 +40,17 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   setLoading(true);
 
-  const payload = {
-    mainName,
-    fromName,
-    eventDate,
-    eventType,
-    templateId,
-    messageText,
-    timeline,
-  };
+ const payload = {
+  mainName,
+  fromName,
+  eventDate,
+  eventType,
+  templateId,
+  messageText,
+  photos: urls,
+  timeline,
+};
+
 
   try {
     const id = await createEvent(payload, photos);

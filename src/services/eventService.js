@@ -10,20 +10,23 @@ export async function createEvent(data, photos) {
     urls.push(url);
   }
 
-  const { data: inserted } = await supabase
-    .from("events")
-    .insert([{ ...data, photos: urls }])
-    .select();
+ const { data: inserted, error } = await supabase
+  .from("events")
+  .insert([payload])
+  .select("*");
 
-  return inserted[0].id;
+if (error) {
+  console.log("SUPABASE ERROR:", error.message);
+  throw error;
+}
 }
 
-export async function getEvent(id) {
-  const { data, error } = await supabase
-    .from("events")
-    .select("*")
-    .eq("id", id)
-    .single();
+// export async function getEvent(id) {
+//   const { data, error } = await supabase
+//     .from("events")
+//     .select("*")
+//     .eq("id", id)
+//     .single();
 
-  return data;
-}
+//   return data;
+// }
