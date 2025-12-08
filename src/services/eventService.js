@@ -21,12 +21,12 @@ if (error) {
 }
 }
 
-// export async function getEvent(id) {
-//   const { data, error } = await supabase
-//     .from("events")
-//     .select("*")
-//     .eq("id", id)
-//     .single();
+export async function getEvent(id) {
+  const { data, error } = await supabase
+    .from("events")
+    .select("*")
+    .eq("id", id)
+    .single();
 
-//   return data;
-// }
+  return data;
+}
