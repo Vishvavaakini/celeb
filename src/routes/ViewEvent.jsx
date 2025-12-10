@@ -27,20 +27,22 @@ export default function ViewEvent() {
 
       <p className="my-5">{event.messageText}</p>
 
-      <div className="flex gap-3 flex-wrap">
-        {event.photos?.map((url, idx) => (
-          <img
-            key={idx}
-            src={url}
-            className="w-32 h-32 object-cover rounded"
-            style={{
-        width: "full",
+   <div className="flex gap-3 flex-wrap">
+  {event.photos?.map((url, idx) => (
+    <img
+      key={idx}
+      src={url}
+      alt=""
+      className="rounded"
+      style={{
+        width: "100%",
+        maxWidth: "400px",
         height: "25rem",
         objectFit: "cover",
       }}
-          />
-        ))}
-      </div>
+    />
+  ))}
+</div>
       {/* Share Link */}
 <div className="mt-10 text-center">
 
